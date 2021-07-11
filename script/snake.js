@@ -40,7 +40,7 @@ function loop() {
     requestAnimationFrame(loop);
     //игровой код выполнится только один раз из 4хБ в этом суть замедления кадров,
     //а пока переменная count меньше 4хБ код выполняться не будет
-    if (++count < 4){
+    if (++count < 8){
         return;
     }
     //обнуление переменной скорости
@@ -113,24 +113,24 @@ document.addEventListener('keydown', function (e){
     //дополнительная проверка: если змейка движется, например, влево, то еще одно нажатие влево или вправо ничего не меняет
     //стрелка влево
     //если нажата стрелка влево, и при этом змейка никуда не движется по горизонтали..
-    if ((e.which === 65 || e.which === 37) && snake.dx === 0){
+    if ((e.key === 'a' || e.key === 'ArrowLeft') && snake.dx === 0){
         //то даем ей движение по горозинтали, влево, а вертикальное - останавливаем
         //та же самая логика будет и на остальных кнопках
         snake.dx = -grid;
         snake.dy = 0;
     }
     //стрелка вверх
-    else if ((e.which === 87 || e.which === 38) && snake.dy === 0) {
+    else if ((e.key === 'w' || e.key === 'ArrowUp') && snake.dy === 0) {
         snake.dy = -grid;
         snake.dx = 0;
     }
     //стрелка вправо
-    else if ((e.which === 68 || e.which === 39) && snake.dx === 0) {
+    else if ((e.key === 'd' || e.key === 'ArrowRight') && snake.dx === 0) {
         snake.dx = grid;
         snake.dy = 0;
     }
     //стрелка вниз
-    else if ((e.which === 83 || e.which === 40) && snake.dy === 0) {
+    else if ((e.key === 's' || e.key === 'ArrowDown') && snake.dy === 0) {
         snake.dy = grid;
         snake.dx = 0;
     }
